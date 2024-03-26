@@ -48,6 +48,7 @@ jobs:
         if: ${{ success() && github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
+        
   tag_release:
     needs: [simple_deployment_pipeline]
     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
